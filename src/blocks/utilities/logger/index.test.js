@@ -81,14 +81,6 @@ describe('Logger', () => {
       boundLog('Hello');
       expect(writeFn.mock.calls[0][0]).toBe(`[${bold(procName)}] Hello\n`);
     });
-
-    it('allows the bound instance to be rebound', () => {
-      const reboundLog = boundLog.rebind(subprocName);
-      reboundLog('Hello');
-      expect(writeFn.mock.calls[0][0]).toBe(
-        `[${bold(`${procName}:${subprocName}`)}] Hello\n`
-      );
-    });
   });
 
   describe('breakLine', () => {
